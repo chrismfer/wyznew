@@ -1,0 +1,48 @@
+@keyframes qr-glow { 0%, 100% { box-shadow: 0 0 15px rgba(0, 179, 119, 0.6); } 50% { box-shadow: 0 0 25px rgba(0, 179, 119, 0.9); } }
+#pix-modal .modal-content { background: linear-gradient(135deg, var(--dark-bg-lighter) 0%, var(--dark-bg-lightest) 100%); border: 1px solid var(--border-color); border-radius: var(--border-radius-lg); box-shadow: 0 8px 30px rgba(0,0,0,0.3); max-width: 400px; width: 90%; padding: 0; overflow: hidden; animation: modalFadeIn 0.3s ease; position: relative; }
+#pix-modal .close-modal { position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; background: rgba(0,0,0,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-light-muted); cursor: pointer; transition: all 0.2s ease; z-index: 10; border: none; font-size: 1rem; }
+#pix-modal .close-modal:hover { background: var(--error-color); color: var(--text-light); transform: scale(1.1); }
+.pix-header { text-align: center; padding: 20px; border-bottom: 1px solid var(--border-color); }
+.pix-header h3 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: 1.2rem; color: var(--accent-color); display: flex; align-items: center; justify-content: center; gap: 10px; }
+.pix-header h3 i { font-size: 1.5rem; }
+.pix-body { padding: 25px; text-align: center; }
+.pix-qrcode-container { padding: 10px; background: rgba(255,255,255,0.95); border-radius: var(--border-radius-md); margin: 0 auto 15px; display: inline-block; animation: qr-glow 2.5s infinite ease-in-out; }
+.qr-code-image { width: 200px; height: 200px; display: block; border-radius: var(--border-radius-sm); }
+.pix-scan-text { font-size: 0.85rem; color: var(--text-light-muted); margin: 0 0 25px; }
+.pix-separator { display: none; }
+.pix-copy-text { font-size: 0.85rem; color: var(--text-light-muted); margin: 0 0 15px; }
+.pix-key-container { display: flex; margin-bottom: 20px; }
+#pix-key-input { flex-grow: 1; background: var(--dark-bg); border: 1px solid var(--border-color); color: var(--text-light); padding: 12px; border-radius: var(--border-radius-md) 0 0 var(--border-radius-md); font-size: 0.8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.copy-btn { border: none; background: var(--accent-color); color: var(--text-light); padding: 0 15px; cursor: pointer; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; transition: background-color 0.2s ease; }
+.copy-btn:hover { background: var(--accent-hover); }
+.copy-btn.copied { background: var(--success-color); }
+
+#status-verificacao {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    gap: 15px; 
+    padding: 20px; 
+    background: rgba(0,0,0,0.2);
+    border-radius: var(--border-radius-md);
+    color: var(--text-light-muted);
+    font-size: 0.9rem;
+}
+
+#pix-modal .pix-loading-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(22, 25, 33, 0.95);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    gap: 15px;
+    color: var(--text-light-muted);
+    border-radius: var(--border-radius-lg);
+}
+#pix-modal .modal-content.loading .pix-loading-overlay {
+    display: flex;
+}

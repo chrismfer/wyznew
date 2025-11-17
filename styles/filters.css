@@ -1,0 +1,266 @@
+/* filters.css - Estilos para o novo sistema de filtros e explicações */
+
+.filters-pills-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    margin-bottom: 15px;
+}
+
+.filter-pill {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-light-muted);
+    background-color: var(--dark-bg-lightest);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-pill:hover {
+    background-color: rgba(0, 179, 119, 0.1);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.filter-pill.active {
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
+    color: var(--text-light);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(0, 179, 119, 0.3);
+    transform: scale(1.05);
+}
+
+.filter-guide {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto 25px auto;
+    background: linear-gradient(135deg, var(--dark-bg-lighter), var(--dark-bg-lightest));
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    transition: all 0.4s ease-out;
+}
+
+.filter-guide-header {
+    padding: 18px 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.filter-guide-header:hover {
+    background-color: rgba(0, 179, 119, 0.05);
+}
+
+.filter-guide-header h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--accent-color);
+    margin: 0;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.filter-guide-header .toggle-icon {
+    color: var(--text-light-muted);
+    transition: transform 0.4s ease;
+}
+
+.filter-guide.collapsed .filter-guide-header .toggle-icon {
+    transform: rotate(-90deg);
+}
+
+.filter-guide-content {
+    max-height: 1500px; /* MODIFICAÇÃO: Altura aumentada para evitar corte de texto */
+    opacity: 1;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.4s ease-out, padding 0.5s ease-out;
+    padding: 0 30px 25px 30px;
+}
+
+.filter-guide.collapsed .filter-guide-content {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.filter-guide p {
+    color: var(--text-light-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.guide-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.guide-info-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: var(--text-light-muted);
+    padding: 18px 5px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+    background: none;
+    border-radius: 0;
+    border-left: none;
+}
+
+.guide-info-list li:last-child {
+    border-bottom: none;
+}
+
+.guide-info-list li:hover {
+    background-color: rgba(0, 179, 119, 0.04);
+}
+
+.guide-info-list li i {
+    color: var(--accent-color);
+    width: 22px;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 4px;
+}
+.guide-link {
+    font-weight: 600;
+    color: var(--accent-color);
+    text-decoration: underline;
+    cursor: pointer;
+}
+.guide-link:hover {
+    color: var(--accent-hover);
+}
+
+.filter-explanation-container {
+    max-width: 1100px;
+    margin: 0 auto 25px auto;
+    padding: 0 20px;
+}
+
+.filter-explanation-box {
+    background: linear-gradient(145deg, var(--dark-bg-lighter), var(--dark-bg-lightest));
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-color);
+    border-radius: var(--border-radius-md);
+    padding: 25px 30px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out, margin 0.5s ease-out;
+}
+
+.filter-explanation-box.active {
+    max-height: 1200px; /* MODIFICAÇÃO: Altura aumentada para evitar corte de texto */
+    opacity: 1;
+    margin-top: 15px;
+}
+
+.filter-explanation-box h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--accent-color);
+    margin: 0 0 15px 0;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-explanation-box h4 {
+    color: var(--text-light);
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.filter-explanation-box p {
+    color: var(--text-light-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.filter-explanation-box strong {
+    color: var(--text-light);
+}
+
+.specs-list, .benefit-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.specs-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: rgba(0,0,0,0.2);
+    padding: 12px;
+    border-radius: var(--border-radius-sm);
+}
+
+.benefit-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 179, 119, 0.05);
+    padding: 12px;
+    border-radius: var(--border-radius-sm);
+    border-left: 3px solid var(--accent-color);
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+
+.specs-list i, .benefit-list i {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin-top: 3px;
+}
+
+.benefit-list i {
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .filter-pill {
+        padding: 6px 14px;
+        font-size: 0.8rem;
+    }
+    .filter-explanation-box, .filter-guide-header, .filter-guide-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .filter-guide-header {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    .filter-explanation-box h3, .filter-guide-header h3 {
+        font-size: 0.95rem;
+    }
+}
